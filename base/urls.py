@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import TaskList, TaskDetail, TaskCreate, TaskUpdate, TaskDelete, UserLoginView, UserLogoutView, UserRegisterView, TaskReorder
+from .views import TaskList, TaskDetail, TaskCreate, TaskUpdate, TaskDelete, UserLoginView, UserLogoutView, user_register, TaskReorder
 
 urlpatterns = [
     path('login', UserLoginView.as_view(), name="login"),
     path('logout', UserLogoutView.as_view(), name="logout"),
-    path('register', UserRegisterView.as_view(), name='register'),
+    path('register', user_register, name='register'),
 
     path('', TaskList.as_view(), name="tasklist"),
     path('task-detail/<int:pk>/', TaskDetail.as_view(), name="task-detail"),
